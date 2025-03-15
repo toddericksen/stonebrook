@@ -10,6 +10,10 @@ body {
   font-style: normal;
 }
 
+nav a:hover {
+  background: yellow;
+}
+
 @media(hover: hover) and (pointer: fine) {
   nav a:hover {
       background: yellow;
