@@ -4,10 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stonebrook Design and Decor</title>
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ovo&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-  <img src="assets/logo.svg" alt="Stonebrook Logo" />
-  <h1 class="text-5xl font-bold">lux drip for your fancy beach house  </h1>
+  <header class="p-6 flex justify-between place-items-center border-b border-stone-200">
+    <img src="assets/images/logo.svg" alt="Stonebrook Logo" />
+    <nav class="flex gap-4 ovo-regular text-lg">
+      <a href="#" class="bg-white py-2 px-4 rounded-lg hover:bg-stone-100">Home</a>
+      <a href="#" class="bg-white py-2 px-4 rounded-lg hover:bg-stone-100">Portfolio</a>
+      <a href="#" class="bg-white py-2 px-4 rounded-lg hover:bg-stone-100">Contact</a>
+    </nav>
+  </header>
+  <main class="">
+    <div class="relative isolate overflow-hidden bg-gray-900 h-180">
+      <img src="assets/images/hero_image.jpg" alt="" class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center">
+      <div class="bg-linear-to-tr from-[#000000] to-[#C3BDA7] opacity-0 hover:opacity-30 absolute top-0 bottom-0 left-0 right-0 -z-10 transform-gpu transition-opacity duration-600" aria-hidden="true">
+      </div>
+      <div class="flex ovo-regular justify-center place-items-center bg-stone-900/20 h-full">
+        <div class="text-7xl text-stone-100 max-w-1/2 text-center">Fine design and furnishings for luxury vacation homes</div>
+      </div>
+      <div class="absolute top-0 left-1/2 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
+        <div class="aspect-1155/678 w-[72.1875rem] bg-linear-to-tr from-[#000000] to-[#878B70] opacity-30"></div>
+      </div>
+    </div>
+    <div class="flex gap-12 justify-center p-12 w-full max-w-5xl mx-auto">
+      <div class="w-full bg-slate-700">Image</div>
+      <div>
+        <div class="ovo-regular text-4xl text-stone-700 tracking-wide">Crafting Luxury, Tailored to You</div>
+        <div class="my-4">Homesmith Design is a national, full-service interior design firm based in the heart of Arizona. We specialize in expertly-curated designs that blend unique artistry with thoughtful functionality to create a home that is the foundation of a meaningful life.</div>
+
+          <div class="my-4">With projects in Scottsdale, Paradise Valley, Queen Creek, and further afield, our clients enjoy a turnkey experience for projects from concept to completion. The HSD team transforms homes into distinguished atmospheres of sophistication and comfort — a sanctuary that inspires every day.</div>
+      </div>
+    </div>
+    
+  </main>
 </body>
 </html>
