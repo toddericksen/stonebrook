@@ -11,11 +11,6 @@ body {
 }
 
 nav a:hover {
-  background: yellow;
+  background: #C3BDA7;
 }
 
-@media(hover: hover) and (pointer: fine) {
-  nav a:hover {
-      background: yellow;
-  }
-}
