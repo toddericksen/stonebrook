@@ -6,107 +6,138 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #222, #000);
+            color: white;
         }
         canvas {
-            background: black;
+            background: linear-gradient(to bottom, #111, #333);
             display: block;
             margin: auto;
+            border: 2px solid white;
+            border-radius: 11px;
+            box-shadow: 0px 0px 25px white;
         }
     </style>
 </head>
 <body>
     <h1>Pong Game</h1>
-    <p>Player: <span id="playerScore">0</span> - AI: <span id="aiScore">0</span></p>
+    <p>Player: <span id="playerScore">0</span> - Opponent: <span id="opponentScore">0</span></p>
     <canvas id="pongCanvas" width="800" height="400"></canvas>
     <script>
         const canvas = document.getElementById("pongCanvas");
         const ctx = canvas.getContext("2d");
 
-        const paddleWidth = 10, paddleHeight = 80;
+        const paddleWidth = 20, paddleHeight = 100;
         let playerY = (canvas.height - paddleHeight) / 2;
-        let aiY = (canvas.height - paddleHeight) / 2;
-        const paddleSpeed = 10;
+        let opponentY = (canvas.height - paddleHeight) / 2;
+        const paddleSpeed = 50;
 
         let ballX = canvas.width / 2, ballY = canvas.height / 2;
         let ballSpeedX = 5, ballSpeedY = 5;
-        const ballSize = 10;
+        const ballSize = 20;
 
         let playerScore = 0;
-        let aiScore = 0;
+        let opponentScore = 0;
+        let showBall = true;
 
         document.addEventListener("keydown", movePaddle);
-
+        
         function movePaddle(e) {
             if (e.key === "ArrowUp" && playerY > 0) {
                 playerY -= paddleSpeed;
             } else if (e.key === "ArrowDown" && playerY < canvas.height - paddleHeight) {
                 playerY += paddleSpeed;
             }
-        }
-
-        function drawRect(x, y, width, height, color) {
-            ctx.fillStyle = color;
-            ctx.fillRect(x, y, width, height);
-        }
-
-        function drawBall(x, y, size, color) {
-            ctx.fillStyle = color;
-            ctx.beginPath();
-            ctx.arc(x, y, size, 0, Math.PI * 2);
-            ctx.fill();
+            if (e.key === "w" && opponentY > 0) {
+                opponentY -= paddleSpeed;
+            } else if (e.key === "s" && opponentY < canvas.height - paddleHeight) {
+                opponentY += paddleSpeed;
+            }
         }
 
         function resetBall(winner) {
-            if (winner === "player") {
-                playerScore++;
-            } else {
-                aiScore++;
-            }
-            document.getElementById("playerScore").textContent = playerScore;
-            document.getElementById("aiScore").textContent = aiScore;
-            
-            ballX = canvas.width / 2;
-            ballY = canvas.height / 2;
-            ballSpeedX = -ballSpeedX;
+          if (winner === "player") {
+              playerScore++;
+          } else {
+              opponentScore++;
         }
+
+    document.getElementById("playerScore").textContent = playerScore;
+    document.getElementById("opponentScore").textContent = opponentScore;
+    
+    ballX = canvas.width / 2;
+    ballY = canvas.height / 2;
+    ballSpeedX = 0;
+    ballSpeedY = 0;
+    showBall = false;
+
+    let countdown = 3;
+
+    function drawCountdown() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "white"; // Ensuring text is white
+        ctx.font = "50px Arial";
+        ctx.textAlign = "center"; // Centering text horizontally
+        ctx.textBaseline = "middle"; // Centering text vertically
+        ctx.fillText(countdown, canvas.width / 2, canvas.height / 2);
+    }
+
+    function startCountdown() {
+        drawCountdown();
+        let countdownInterval = setInterval(() => {
+            countdown--;
+            drawCountdown();
+
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                showBall = true;
+                gameLoop(); // Restart game loop after countdown
+            }
+        }, 1000);
+    }
+
+    // Stop the game loop during the countdown
+    startCountdown();
+}
+
 
         function update() {
             ballX += ballSpeedX;
             ballY += ballSpeedY;
 
-            // Ball collision with top and bottom walls
             if (ballY <= 0 || ballY >= canvas.height) {
                 ballSpeedY = -ballSpeedY;
             }
 
-            // AI movement (basic tracking)
-            if (aiY + paddleHeight / 2 < ballY) {
-                aiY += paddleSpeed / 1.5;
-            } else {
-                aiY -= paddleSpeed / 1.5;
-            }
-
-            // Ball collision with paddles
             if (
                 (ballX <= paddleWidth && ballY >= playerY && ballY <= playerY + paddleHeight) ||
-                (ballX >= canvas.width - paddleWidth && ballY >= aiY && ballY <= aiY + paddleHeight)
+                (ballX >= canvas.width - paddleWidth && ballY >= opponentY && ballY <= opponentY + paddleHeight)
             ) {
                 ballSpeedX = -ballSpeedX;
             }
 
-            // Check for scoring
             if (ballX < 0) {
-                resetBall("ai");
+                resetBall("opponent");
             } else if (ballX > canvas.width) {
                 resetBall("player");
             }
         }
 
         function draw() {
-            drawRect(0, 0, canvas.width, canvas.height, "black");
-            drawRect(0, playerY, paddleWidth, paddleHeight, "white");
-            drawRect(canvas.width - paddleWidth, aiY, paddleWidth, paddleHeight, "white");
-            drawBall(ballX, ballY, ballSize, "white");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "white";
+            ctx.fillRect(-10, playerY, paddleWidth, paddleHeight);
+            ctx.fillRect(canvas.width - paddleWidth + 10, opponentY, paddleWidth, paddleHeight);
+            if (showBall) {
+                ctx.beginPath();
+                ctx.arc(ballX, ballY, ballSize, 0, Math.PI * 2);
+                ctx.fill();
+            }
         }
 
         function gameLoop() {
