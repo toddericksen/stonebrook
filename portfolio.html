@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stonebrook Design and Decor</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ovo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="p-6 flex justify-between place-items-center border-b border-stone-200">
+    <img src="assets/images/logo.svg" alt="Stonebrook Logo" class="mx-auto h-20 md:h-24 md:mx-0"/>
+    <nav class="gap-4 ovo-regular text-lg hidden md:flex">
+      <a href="#" class="bg-white py-2 px-4 rounded-lg">Home</a>
+      <a href="#" class="bg-white py-2 px-4 rounded-lg">Portfolio</a>
+      <a href="#" class="bg-white py-2 px-4 rounded-lg">Contact</a>
+    </nav>
+  </header>
+  <main class="">
+    <div class="carousel">
+      <div class="carousel-inner">
+          <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+          <div class="carousel-item">
+              <img src="assets/images/IMG_1641_3_4_0.jpg">
+          </div>
+          <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+          <div class="carousel-item">
+              <img src="assets/images/IMG_1646_8_9_0.jpg">
+          </div>
+          <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+          <div class="carousel-item">
+              <img src="assets/images/IMG_1651_3_4_0.jpg">
+          </div>
+          <label for="carousel-3" class="carousel-control prev control-1">‹</label>
+          <label for="carousel-2" class="carousel-control next control-1">›</label>
+          <label for="carousel-1" class="carousel-control prev control-2">‹</label>
+          <label for="carousel-3" class="carousel-control next control-2">›</label>
+          <label for="carousel-2" class="carousel-control prev control-3">‹</label>
+          <label for="carousel-1" class="carousel-control next control-3">›</label>
+          <ol class="carousel-indicators">
+              <li>
+                  <label for="carousel-1" class="carousel-bullet">•</label>
+              </li>
+              <li>
+                  <label for="carousel-2" class="carousel-bullet">•</label>
+              </li>
+              <li>
+                  <label for="carousel-3" class="carousel-bullet">•</label>
+              </li>
+          </ol>
+      </div>
+  </div>
+  </main>
+</body>
+</html>
