@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stonebrook Design and Decor</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ovo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="p-6 flex justify-between place-items-center border-b border-stone-200">
+    <img src="assets/images/logo.svg" alt="Stonebrook Logo" class="mx-auto h-20 md:h-24 md:mx-0"/>
+    <nav class="gap-4 ovo-regular text-lg hidden md:flex">
+      <a href="index.html" class="bg-white py-2 px-4 rounded-lg">Home</a>
+      <a href="portfolio.html" class="bg-white py-2 px-4 rounded-lg">Portfolio</a>
+      <a href="#" class="bg-white py-2 px-4 rounded-lg">Contact</a>
+    </nav>
+  </header>
+  <main class="bg-white">
+    <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+        <h2 class="mb-4 text-4xl ovo-regular tracking-wide text-center text-stone-700">Contact Us</h2>
+        <p class="mb-8 lg:mb-16 font-light text-center text-stone-600 sm:text-xl">
+            Let's bring your vision to life. Get in touch to start designing your dream space today.
+        </p>
+        <form action="#" class="space-y-6">
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-stone-700">Your email</label>
+                <input type="email" id="email" class="shadow-sm bg-stone-200 border border-stone-400 text-stone-900 text-sm rounded-lg focus:ring-stone-500 focus:border-stone-500 block w-full p-2.5" placeholder="name@example.com" required>
+            </div>
+            <div>
+                <label for="subject" class="block mb-2 text-sm font-medium text-stone-700">Subject</label>
+                <input type="text" id="subject" class="block p-3 w-full text-sm text-stone-900 bg-stone-200 rounded-lg border border-stone-400 shadow-sm focus:ring-stone-500 focus:border-stone-500" placeholder="Let us know how we can help you" required>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="message" class="block mb-2 text-sm font-medium text-stone-700">Your message</label>
+                <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-stone-900 bg-stone-200 rounded-lg shadow-sm border border-stone-400 focus:ring-stone-500 focus:border-stone-500" placeholder="Leave a comment..."></textarea>
+            </div>
+            <button type="submit" class="py-3 px-6 text-sm font-medium text-center text-white rounded-lg bg-stone-700 sm:w-fit hover:bg-stone-800 focus:ring-4 focus:outline-none focus:ring-stone-400">
+                Send message
+            </button>
+        </form>
+    </div>
+  </main>  
+</body>
+</html>
