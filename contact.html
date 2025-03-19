@@ -14,8 +14,8 @@
 </head>
 <body>
   <header class="p-6 flex justify-between place-items-center border-b border-stone-200">
-    <img src="assets/images/logo.svg" alt="Stonebrook Logo" class="mx-auto h-20 md:h-24 md:mx-0"/>
-    <nav class="gap-4 ovo-regular text-lg hidden md:flex">
+    <a href="index.html" class="mx-auto md:mx-0"><img src="assets/images/logo.svg" alt="Stonebrook Logo" class="h-20 md:h-24"/></a>
+    <nav class="flex gap-4 ovo-regular text-lg hidden md:flex">
       <a href="index.html" class="bg-white py-2 px-4 rounded-lg">Home</a>
       <a href="portfolio.html" class="bg-white py-2 px-4 rounded-lg">Portfolio</a>
       <a href="#" class="bg-white py-2 px-4 rounded-lg">Contact</a>
@@ -27,7 +27,7 @@
         <p class="mb-8 lg:mb-16 font-light text-center text-stone-600 sm:text-xl">
             Let's bring your vision to life. Get in touch to start designing your dream space today.
         </p>
-        <form action="#" class="space-y-6">
+        <!-- <form action="#" class="space-y-6">
             <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-stone-700">Your email</label>
                 <input type="email" id="email" class="shadow-sm bg-stone-200 border border-stone-400 text-stone-900 text-sm rounded-lg focus:ring-stone-500 focus:border-stone-500 block w-full p-2.5" placeholder="name@example.com" required>
@@ -43,7 +43,31 @@
             <button type="submit" class="py-3 px-6 text-sm font-medium text-center text-white rounded-lg bg-stone-700 sm:w-fit hover:bg-stone-800 focus:ring-4 focus:outline-none focus:ring-stone-400">
                 Send message
             </button>
-        </form>
+        </form> -->
+
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+
+          <!-- Replace with your Access Key -->
+          <input type="hidden" name="access_key" value="e0cdafdb-bbd0-4a2c-8935-46df5a89cca2">
+
+          <!-- Form Inputs. Each input must have a name="" attribute -->
+          <label for="name" class="block mb-2 text-sm font-medium text-stone-700">Name</label>
+          <input type="text" name="name" class="shadow-sm bg-stone-200 border border-stone-400 text-stone-900 text-sm rounded-lg focus:ring-stone-800 focus:border-stone-800 focus:outline-none block w-full p-2.5" placeholder="Enter your name" required>
+
+          <label for="email" class="block mb-2 text-sm font-medium text-stone-700">Email Address</label>
+          <input type="email" name="email" class="shadow-sm bg-stone-200 border border-stone-400 text-stone-900 text-sm rounded-lg focus:ring-stone-800 focus:outline-none focus:border-stone-800 block w-full p-2.5" placeholder="name@example.com" required>
+
+          <label for="message" class="block mb-2 text-sm font-medium text-stone-700">Message</label>
+          <textarea name="message" rows="6" class="block p-2.5 w-full text-sm text-stone-900 bg-stone-200 rounded-lg shadow-sm border border-stone-400 focus:outline-none focus:ring-stone-800 focus:border-stone-800" placeholder="Leave a comment..."></textarea>
+      
+          <!-- Honeypot Spam Protection -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+      
+          <button type="submit" class="py-3 px-6 text-sm font-medium text-center text-white rounded-lg bg-stone-700 sm:w-fit hover:bg-stone-800 focus:ring-2 focus:outline-none focus:ring-stone-400 focus:bg-stone-400">
+            Send message
+        </button>
+      
+      </form>
     </div>
   </main>  
 </body>
